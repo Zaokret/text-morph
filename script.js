@@ -10,14 +10,10 @@ function main() {
       ev.target.value
     );
     currentText = ev.target.value;
-
-    // DELETE
     toDelete.forEach((action) => {
       const childEl = outputEl.children.item(action.at);
       outputEl.removeChild(childEl);
     });
-
-    // INSERT
     if (outputEl.children.length > 0) {
       toInsert.forEach((action) => {
         const newChild = createLetterEl(action.char);
@@ -48,7 +44,6 @@ function longestCommonSubsequence(text1, text2) {
   const dp = Array.from({ length: text1.length + 1 }, () =>
     Array(text2.length + 1).fill(0)
   );
-
   for (let i = 1; i <= text1.length; i++) {
     for (let j = 1; j <= text2.length; j++) {
       if (text1[i - 1] === text2[j - 1]) {
@@ -58,11 +53,9 @@ function longestCommonSubsequence(text1, text2) {
       }
     }
   }
-
   let lcs = "";
   let i = text1.length;
   let j = text2.length;
-
   while (i > 0 && j > 0) {
     if (text1[i - 1] === text2[j - 1]) {
       lcs = text1[i - 1] + lcs;
@@ -74,7 +67,6 @@ function longestCommonSubsequence(text1, text2) {
       j--;
     }
   }
-
   return lcs;
 }
 
@@ -98,13 +90,4 @@ function getTransformations(source, target) {
     }
   }
   return { toDelete: toDelete.reverse(), toInsert: toInsert.reverse() };
-}
-
-function executeTextActions(text, actions) {
-  let copy = text.split("");
-  for (const action of actions.reverse()) {
-    if (action.to === "delete") copy.splice(action.at, 1);
-    if (action.to === "insert") copy.splice(action.at, 0, action.char);
-  }
-  return copy.join("");
 }
