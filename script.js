@@ -14,10 +14,6 @@ function main() {
     // DELETE
     toDelete.forEach((action) => {
       const childEl = outputEl.children.item(action.at);
-      console.log({
-        rect: childEl.getBoundingClientRect(),
-        char: childEl.innerText,
-      });
       outputEl.removeChild(childEl);
     });
 
