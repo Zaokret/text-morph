@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-Morph</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.3s forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="output"></div>
+    <input type="text" name="text" id="input" />
+    <script src="script.js"></script>
+  </body>
+</html>
